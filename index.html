@@ -8,11 +8,11 @@
     <title>Kenin</title>
 </head>
 <body>
-    <div class="header">
+    <div id="header">
         <div class="container">
             <nav>
-                <img src="logo.png" id="logo">
-                <ul>
+                <img src="logo.png" class="logo">
+                <ul id="sidemenu">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Skills</a></li>
                     <li><a href="#">Portfolio</a></li>
@@ -25,5 +25,55 @@
             </div>
         </div>
     </div>
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>“The best way to predict the future is to implement it.”</p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>HTML, CSS, JS</span></li>
+                            <li><span>Python</span></li>
+                            <li><span>Django Framework</span></li>
+                            <li><span>CI/CD Piplines</span></li>
+                            <li><span>SQL</span></li>
+                            <li><span>Fast/Rest API's</span></li>
+                            <li><span>Web/sockets</span></li>
+                            <li><span>Devops Process</span></li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2020 First time programming</span></li>
+                            <li><span>2021 Taking online coding courses</span></li>
+                            <li><span>2022 Started scripting small scripts</span></li>
+                            <li><span>2022-2026 Apprenticeship as a Software Dev</span></li>
+                            <li><span>2023 Coding 40h a week</span></li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>Small fun scripts</span></li>
+                            <li><span>Python Sockets Terminal Chat</span></li>
+                            <li><span>Python Django Asych Chat</span></li>
+                            <li><span>Face Detection API</span></li>
+                            <li><span>Deployment Training</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 </body>
 </html>
