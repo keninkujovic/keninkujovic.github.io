@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kenin</title>
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
     <div id="header">
@@ -13,8 +15,8 @@
             <nav>
                 <img src="logo.png" class="logo">
                 <ul id="sidemenu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Skills</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Skills</a></li>
                     <li><a href="#">Portfolio</a></li>
                     <li><a href="#">Kontakt</a></li>
                 </ul>
@@ -25,55 +27,75 @@
             </div>
         </div>
     </div>
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>“The best way to predict the future is to implement it.”</p>
 
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="about-col-1">
-                    <img src="">
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
                 </div>
-                <div class="about-col-2">
-                    <h1 class="sub-title">About Me</h1>
-                    <p>“The best way to predict the future is to implement it.”</p>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>HTML, CSS, JS</span></li>
+                        <li><span>Python</span></li>
+                        <li><span>Django Framework</span></li>
+                        <li><span>CI/CD Piplines</span></li>
+                        <li><span>SQL</span></li>
+                        <li><span>Fast/Rest API's</span></li>
+                        <li><span>Web/sockets</span></li>
+                        <li><span>Devops Process</span></li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>2020</span> First time programming</li>
+                        <li><span>2021</span> Taking online coding courses</li>
+                        <li><span>2022</span> Started scripting small scripts</li>
+                        <li><span>2022-2026</span> Apprenticeship as a Software Dev</li>
+                        <li><span>2022</span> First Webapp</li>
+                        <li><span>2023</span> Advanced Face Recognition API</li>
+                        <li><span>2023</span> Coding 40h a week</li>
+                        <li><span>2023</span> AI Text detector and summarizer</li>
 
-                    <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                        <p class="tab-links" onclick="opentab('education')">Education</p>
-                    </div>
-                    <div class="tab-contents active-tab" id="skills">
-                        <ul>
-                            <li><span>HTML, CSS, JS</span></li>
-                            <li><span>Python</span></li>
-                            <li><span>Django Framework</span></li>
-                            <li><span>CI/CD Piplines</span></li>
-                            <li><span>SQL</span></li>
-                            <li><span>Fast/Rest API's</span></li>
-                            <li><span>Web/sockets</span></li>
-                            <li><span>Devops Process</span></li>
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="experience">
-                        <ul>
-                            <li><span>2020 First time programming</span></li>
-                            <li><span>2021 Taking online coding courses</span></li>
-                            <li><span>2022 Started scripting small scripts</span></li>
-                            <li><span>2022-2026 Apprenticeship as a Software Dev</span></li>
-                            <li><span>2023 Coding 40h a week</span></li>
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="education">
-                        <ul>
-                            <li><span>Small fun scripts</span></li>
-                            <li><span>Python Sockets Terminal Chat</span></li>
-                            <li><span>Python Django Asych Chat</span></li>
-                            <li><span>Face Detection API</span></li>
-                            <li><span>Deployment Training</span></li>
-                        </ul>
-                    </div>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>Small fun scripts</span></li>
+                        <li><span>Python Sockets Terminal Chat</span></li>
+                        <li><span>Python Django Asych Chat</span></li>
+                        <li><span>Face Detection API</span></li>
+                        <li><span>Weather app</span></li>
+                        <li><span>Random quote generator</span></li>
+                        <li><span>Dockerfiles</span></li>
+                        <li><span>Deployment Training</span></li>
+                    </ul>
+                </div>
+                    <script>
+                        var tablinks = document.getElementsByClassName('tab-links')
+                        var tabcontents = document.getElementsByClassName('tab-contents')
+                    
+                        function opentab(tabname){
+                            for(tablink of tablinks){
+                                tablink.classList.remove("active-link");
+                            }
+                            for(tabcontent of tabcontents){
+                                tabcontent.classList.remove("active-tab");
+                            }
+                            event.currentTarget.classList.add("active-link");
+                            document.getElementById(tabname).classList.add('active-tab')
+                        }
+                    </script>
                 </div>
             </div>
         </div>
-
 </body>
 </html>
