@@ -1,10 +1,10 @@
-@font-face {
-    font-family: 'Poppins';
-    src: url('fonts/Poppins-Bold.woff2') format('woff2'),
-    url('fonts/Poppins-Bold.woff') format('woff'),
-    url('fonts/Poppins-Bold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+#gradient-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
 }
 *{
     margin: 0;
@@ -13,9 +13,10 @@
     box-sizing: border-box;
 }
 body::-webkit-scrollbar {
-    width: 0.5em;
+    width: 0px;
     background-color: #000000;
-} 
+}
+  
 body::-webkit-scrollbar-thumb {
     background-color: #000000;
     border: none;
@@ -24,16 +25,17 @@ html{
     scroll-behavior: smooth;
 }
 body{
+
+    overflow-x: hidden;
     background: #080808;
     color: #fff;
 }
 #header{
     width: 100%;
     height: 100vh;
-    background-image: url(images/background.png);
-    background-size: cover;
-    background-position: center;
+    background-position: right;
     background-attachment: fixed;
+    background-size: 1000px;
 }
 .container{
     padding: 10px 10%;
@@ -83,12 +85,7 @@ nav ul li a:hover::after{
     font-size: 60px;
     margin-top: 20px;
 }
-.header-text h1 span{
-    color: #007FFF;
-}
-
----------------------
-
+/*----------about-section----------*/
 #about{
     padding: 80px 0;
     color: #ababab;
@@ -100,7 +97,6 @@ nav ul li a:hover::after{
 }
 .about-col-1{
     flex-basis: 35%;
-    margin-bottom: 75%;
 }
 .about-col-1 img{
     width:  100%;
@@ -108,7 +104,99 @@ nav ul li a:hover::after{
 }
 .about-col-2{
     flex-basis: 60%;
-    margin-bottom: 75%;
+}
+.sub-title{
+    font-size: 60px;
+    font-weight: 600;
+    color: #fff;
+}
+.tab-titles{
+    display: flex;
+    margin: 20px;
+}*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background: black;
+    color: #fff;
+}
+header{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+.container{
+    padding: 10px 10%;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.logo{
+    width: 140px;
+}
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #007FFF; 
+    box-shadow: 0 0 5px #004d9b;
+    position: absolute;
+    left: 0;
+    bottom:  -6px;
+    transition: 0.5s;
+}
+nav ul li a:hover::after{
+    width: 100%;
+}
+.header-text{
+    margin-top: 20%;
+    font-size: 30px;
+}
+.header-text h1{
+    font-size: 60px;
+    margin-top: 20px;    
+}
+.header-text h1 span{
+    color: rgba(255, 255, 255, 0.7);
+    mix-blend-mode: screen;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0), -1px -1px 2px rgba(0, 0, 0, 0);
+}
+/*----------about-section----------*/
+#about{
+    padding: 80px 0;
+    color: #ababab;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.about-col-1{
+    flex-basis: 35%;
+}
+.about-col-1 img{
+    width:  100%;
+    border-radius: 15px;
+}
+.about-col-2{
+    flex-basis: 60%;
 }
 .sub-title{
     font-size: 60px;
@@ -143,10 +231,10 @@ nav ul li a:hover::after{
 .tab-contents ul li{
     list-style: none;
     margin: 10px;
+    font-size: 14px;
 }
 .tab-contents ul li span{
     color: #ffffff;
-    font-size: 14px;
 }
 .tab-contents{
     display: none;
@@ -154,8 +242,7 @@ nav ul li a:hover::after{
 .tab-contents.active-tab{
     display: block;
 }
-
------------------
+/*----------services----------*/
 
 #services{
     padding: 30px 0;
@@ -178,6 +265,11 @@ nav ul li a:hover::after{
     font-size: 40px;
     margin-bottom: 10px;
 }
+object {
+    width: 44px;
+    height: 44px;
+    color: #ffffff;
+}  
 .services-list div h2{
     font-size: 30px;
     font-weight: 500;
