@@ -22,6 +22,9 @@
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-M43VG65');</script>
         <!-- End Google Tag Manager -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     </head>
     <body>
                 <!-- Google Tag Manager (noscript) -->
@@ -29,7 +32,9 @@
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
         <div id="header">
-            <canvas id="gradient-canvas"></canvas>
+                <div class="shape-wrapper">
+                <div class="shape"></div>
+                </div>
             <div class="container">
                 <nav>
                     <img src="" alt="logo" class="logo">
@@ -51,7 +56,9 @@
             <div class="container">
                 <div class="row">
                     <div class="about-col-1">
-                        <img src="img.webp" alt="Abstract">
+                        <div class="video-container">
+                            <video src="Comp_1_2.mp4" autoplay loop oncontextmenu="return false;" width="100%"></video>
+                        </div>
                     </div>
                     <div class="about-col-2">
                         <h1 class="sub-title">About Me</h1>
@@ -149,6 +156,57 @@
                     </div>
                 </div>
             </div>
+            <h1 id="fähigkeiten">Fähigkeiten</h1>
+<div class="grid">
+    <figure>
+      <img src="svg/amazonaws.svg" alt="Amazon AWS">
+    </figure>
+    <figure>
+      <img src="svg/googlecloud.svg" alt="Google Cloud">
+    </figure>
+    <figure>
+      <img src="svg/ibmcloud.svg" alt="IBM Cloud">
+    </figure>
+    <figure>
+      <img src="svg/gitlab.svg" alt="GitLab">
+    </figure>
+    <figure>
+      <img src="svg/docker.svg" alt="Docker">
+    </figure>
+    <figure>
+      <img src="svg/nginx.svg" alt="Nginx">
+    </figure>
+    <figure>
+      <img src="svg/cloudflare.svg" alt="Cloudflare">
+    </figure>
+    <figure>
+      <img src="svg/mysql.svg" alt="MySQL">
+    </figure>
+    <figure>
+      <img src="svg/fastapi.svg" alt="FastAPI">
+    </figure>
+    <figure>
+      <img src="svg/socketdotio.svg" alt="Socket.IO">
+    </figure>
+    <figure>
+      <img src="svg/tensorflow.svg" alt="TensorFlow">
+    </figure>
+    <figure>
+      <img src="svg/wordpress.svg" alt="WordPress">
+    </figure>
+    <figure>
+      <img src="svg/rancher.svg" alt="Rancher">
+    </figure>
+    <figure>
+      <img src="svg/html5.svg" alt="HTML5">
+    </figure>
+    <figure>
+      <img src="svg/css3.svg" alt="CSS3">
+    </figure>
+    <figure>
+      <img src="svg/javascript.svg" alt="JavaScript">
+    </figure>
+  </div>
             <script>
                 var tablinks = document.getElementsByClassName('tab-links')
                 var tabcontents = document.getElementsByClassName('tab-contents')
@@ -174,7 +232,7 @@
             }
         </style>
         </style>
-        <canvas id="gradient-canvas" style="width:100vw;height:100vh"></canvas>
+
         <script>
             var gradient = new Gradient()
             gradient.initGradient('#gradient-canvas');
