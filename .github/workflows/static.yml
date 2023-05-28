@@ -12,15 +12,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Deploy GitHub Pages site
-        run: |
-          echo "kenin.ch" > CNAME
-          find . -type d -name "index.html" -exec bash -c 'foldername=$(dirname "{}"); foldername=${foldername:2}; mkdir -p "$foldername"; mv "{}" "$foldername/$foldername"' \;
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./keninkujovic.github.io
+          publish_dir: ./
+          publish_branch: main
+          publish_repo: keninkujovic/keninkujovic.github.io
