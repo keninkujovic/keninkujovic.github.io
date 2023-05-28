@@ -21,7 +21,8 @@ This file typically contains information and instructions about the repository, 
 This file represents the main homepage of the website. It is the default page displayed when accessing the root URL of the website.
 
 # robots.txt
-This file is used to provide instructions to web crawlers or search engines about which parts of the website to crawl or exclude.
+This file is used to provide instructions to web crawlers or search engines about which parts of the website to crawl or exclude. Take a look at [Google's Docs](https://developers.google.com/search/docs/crawling-indexing/robots/create-robots-txt).
+
 
 # LICENSE
 The LICENSE file contains the license information for the repository, specifying the terms under which the code or content is distributed.
@@ -42,4 +43,4 @@ This is the "Star Wars" looking Video lol.
 This directory likely contains icon files used for the website, such as favicon.ico or other image files.
 
 # svg
-This directory likely contains SVG image files, which are vector graphics that can be scaled without losing quality.
+This directory contains SVG image files, which are vector graphics that can be scaled without losing quality.
