@@ -44,3 +44,6 @@ This directory likely contains icon files used for the website, such as favicon.
 
 # svg
 This directory contains SVG image files, which are vector graphics that can be scaled without losing quality.
+
+# Google Lighthouse
+My Website has been able to perform 4x 100/100 on the [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) Test. Both on [Mobile](https://pagespeed.web.dev/analysis/https-kenin-ch/cmbmgd2hpv?form_factor=mobile) and [Desktop](https://pagespeed.web.dev/analysis/https-kenin-ch/cmbmgd2hpv?form_factor=desktop).
