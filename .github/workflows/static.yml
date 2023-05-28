@@ -11,7 +11,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+        with:
+          token: ${{ secrets.DEPLOY_TOKEN }}
+          
       - name: Setup Git
         run: |
           git config user.name "GitHub Actions"
@@ -23,6 +25,4 @@ jobs:
           git checkout --orphan gh-pages
           git --work-tree ./ add --all
           git --work-tree ./ commit -m "GitHub Actions build: ${{ github.run_number }}"
-          git push origin HEAD:gh-pages --force
-        env:
-          GH_TOKEN: ${{ secrets.DEPLOY_KEY }}
+          git push https://${{ secrets.DEPLOY_TOKEN }}@github.com/${{ github.repository }}.git HEAD:gh-pages --force
