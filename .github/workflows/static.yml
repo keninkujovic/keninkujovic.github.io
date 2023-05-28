@@ -19,6 +19,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
+          echo "kenin.ch" > CNAME
           git checkout --orphan gh-pages
           git --work-tree ./ add --all
           git --work-tree ./ commit -m "GitHub Actions build: ${{ github.run_number }}"
