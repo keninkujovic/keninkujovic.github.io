@@ -15,14 +15,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: List Subdirectories
-        id: list-subdirs
         run: |
-          find . -type d -not -path '*/\.*' -print > subdirs.txt
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload Subdirectories List
-        uses: actions/upload-artifact@v2
-        with:
-          name: subdirs
-          path: subdirs.txt
+          find . -type d -not -path '*/\.*' -print0 | while IFS= read -r -d '' subdir; do
+            echo "Subdirectory: $subdir"
+          done
