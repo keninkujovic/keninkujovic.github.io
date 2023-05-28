@@ -15,10 +15,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Deploy 🚀
-        id: deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          branch: main
           folder: .
-
-      - name: Get Deployment URL
-        run: echo "Deployed at ${{ steps.deploy.outputs.url }}"
+          target_branch: gh-pages
+          cname: kenin.ch
