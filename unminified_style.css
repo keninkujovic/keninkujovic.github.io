@@ -182,15 +182,18 @@ nav ul li a:hover::after {
 
 .services-list div {
     background-image: linear-gradient(
-  0deg,
-  hsl(166deg 100% 44%) 0%,
-  hsl(164deg 74% 41%) 6%,
-  hsl(163deg 62% 35%) 14%,
-  hsl(161deg 52% 28%) 27%,
-  hsl(160deg 42% 20%) 46%,
-  hsl(158deg 29% 12%) 70%,
-  hsl(0deg 0% 2%) 100%
-);
+        45deg,
+        hsl(166deg 100% 44%) 0%,
+        hsl(165deg 100% 39%) 1%,
+        hsl(163deg 100% 34%) 5%,
+        hsl(161deg 100% 29%) 12%,
+        hsl(159deg 100% 25%) 23%,
+        hsl(156deg 100% 20%) 37%,
+        hsl(151deg 100% 16%) 53%,
+        hsl(144deg 100% 11%) 70%,
+        hsl(120deg 100% 8%) 86%,
+        hsl(0deg 0% 0%) 100%
+      );
     padding: 30px;
     font-size: 13px;
     font-weight: 300;
@@ -514,4 +517,14 @@ form .btn2 {
       top: 100%;
       left: 0;
     }
+  }
+
+  .row {
+    display: flex;
+  }
+
+  .contact-left,
+  .contact-right {
+    flex: 1;
+    width: 50%;
   }
