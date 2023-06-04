@@ -29,8 +29,24 @@
         <div class="shape"></div>
       </div>
       <div class="container">
-        <nav>
+        <nav class="nav">
           <img src="logo.png" alt="logo" class="logo">
+          <svg
+          class="ham hamRotate ham1"
+          viewBox="0 0 100 100"
+          width="80"
+          onclick="this.classList.toggle('active')"
+        >
+          <path
+            class="line top"
+            d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"
+          />
+          <path class="line middle" d="m 30,50 h 40" />
+          <path
+            class="line bottom"
+            d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"
+          />
+        </svg>
           <ul id="sidemenu">
             <li>
               <a href="#about-me" aria-label="About me">About me</a>
@@ -54,7 +70,6 @@
         <img src="unterschrift.svg" class="animated-image" alt="Kenin Kujovic's Unterschrift">
       </div>
     </div>
-    <!----------about-section---------->
     <div id="about-me">
     <div id="about">
       <div class="container">
@@ -195,82 +210,82 @@
       <h1 class="sub-title skills-grid">Portfolio</h1>
       <div class="grid">
         <a href="Amazon-AWS/">
-          <figure>
+          <figure class="figure">
             <img src="svg/amazonaws.svg" alt="Amazon AWS">
           </figure>
         </a>
         <a href="Google-Cloud/">
-          <figure>
+          <figure class="figure">
             <img src="svg/googlecloud.svg" alt="Google Cloud">
           </figure>
         </a>
         <a href="IBM-Cloud/">
-          <figure>
+          <figure class="figure">
             <img src="svg/ibmcloud.svg" alt="IBM Cloud">
           </figure>
         </a>
         <a href="GitLab/">
-          <figure>
+          <figure class="figure">
             <img src="svg/gitlab.svg" alt="GitLab">
           </figure>
         </a>
         <a href="Docker/">
-          <figure>
+          <figure class="figure">
             <img src="svg/docker.svg" alt="Docker">
           </figure>
         </a>
         <a href="Nginx/">
-          <figure>
+          <figure class="figure">
             <img src="svg/nginx.svg" alt="Nginx">
           </figure>
         </a>
         <a href="Cloudflare/">
-          <figure>
+          <figure class="figure">
             <img src="svg/cloudflare.svg" alt="Cloudflare">
           </figure>
         </a>
         <a href="MySQL/">
-          <figure>
+          <figure class="figure">
             <img src="svg/mysql.svg" alt="MySQL">
           </figure>
         </a>
         <a href="FastAPI/">
-          <figure>
+          <figure class="figure">
             <img src="svg/fastapi.svg" alt="FastAPI">
           </figure>
         </a>
         <a href="websocket/">
-          <figure>
+          <figure class="figure">
             <img src="svg/websocket.svg" alt="Websocket">
           </figure>
         </a>
         <a href="TensorFlow/">
-          <figure>
+          <figure class="figure">
             <img src="svg/tensorflow.svg" alt="TensorFlow">
           </figure>
         </a>
         <a href="Rancher/">
-          <figure>
+          <figure class="figure">
             <img src="svg/rancher.svg" alt="Rancher">
           </figure>
         </a>
         <a href="WordPress/">
-          <figure>
+          <figure class="figure">
             <img src="svg/wordpress.svg" alt="WordPress">
           </figure>
         </a>
         <a href="Webdesign/">
-          <figure>
+          <figure class="figure">
             <img src="svg/html5.svg" alt="HTML5">
           </figure>
         </a>
         <a href="Webdesign/">
-          <figure>
+          <figure class="figure">
             <img src="svg/css3.svg" alt="CSS3">
           </figure>
         </a>
         <a href="Webdesign/">
-          <figure>
+          <figure class="figure">
             <img src="svg/javascript.svg" alt="JavaScript">
           </figure>
         </a>
