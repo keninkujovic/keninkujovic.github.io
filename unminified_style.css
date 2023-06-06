@@ -520,6 +520,9 @@ button {
     .contact-left, .contact-right {
         flex-basis: 100%;
    }
+   .animated-image{
+        width: 50%;
+   }
     #sidemenu {
         display: none;
    }
