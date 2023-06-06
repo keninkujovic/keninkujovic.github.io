@@ -52,7 +52,7 @@
               <a href="#about-me" aria-label="About me">About me</a>
             </li>
             <li>
-              <a href="#services" aria-label="Skills">Skills</a>
+              <a href="#skills" aria-label="Skills">Skills</a>
             </li>
             <li>
               <a href="#portfolio" aria-label="Portfolio">Portfolio</a>
@@ -167,6 +167,7 @@
       </div>
     </div>
   </div>
+  <div id="skills">
       <div class="container">
         <h1 class="sub-title faehigkeiten">Skills</h1>
         <div class="services-list">
@@ -204,6 +205,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
     <div id="portfolio">
     <div class="container">
@@ -329,12 +331,14 @@
             </div>
           </div>
           <div class="contact-right">
-            <form name="submit-to-google-sheet" action="https://script.google.com/macros/s/AKfycbxKT1_qzc_yt4hh0Q0Vq-r8K6YC0GvcWkMckoBY8Xv-r3AnknX5_CNB62pTYY5hLya-oQ/exec" method="POST" onsubmit="showPopup()">
+            <form name="submit-to-google-sheet" action="https://script.google.com/macros/s/AKfycbyx4H6iKVwNCw9KPYbM8vTV7Bw1XCU40M1C1JrGrVaeFBQc5TU5AMNQNxAFD757n6fk6w/exec" method="POST" onsubmit="showPopup()">
               <input type="text" name="Name" placeholder="Your Name" required>
               <input type="email" name="Email" placeholder="Your Email" required>
               <textarea name="Message" rows="6" placeholder="Your Message..."></textarea>
-              <button type="submit">
+              <div class="button-container">
+              <button type="submit" id="submit">
                 <span class="animated-button"></span> Submit 👍 </button>
+              </div>
             </form>
             <script>
               function showPopup() {
@@ -350,6 +354,17 @@
     </div>
     </div>
     <script>
+const submitButton = document.getElementById('submit');
+
+// Add the animation class to the submit button
+submitButton.classList.add('rotate-animation');
+
+// Remove the animation class after the animation finishes
+submitButton.addEventListener('animationend', () => {
+    submitButton.classList.remove('rotate-animation');
+});
+
+
       var tablinks = document.getElementsByClassName('tab-links')
       var tabcontents = document.getElementsByClassName('tab-contents')
 
