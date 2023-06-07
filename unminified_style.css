@@ -50,18 +50,18 @@ nav {
     position: absolute;
     left: 10%;
 }
-nav ul li {
+#sidemenu li {
     display: inline-block;
     list-style: none;
     margin: 10px 20px;
 }
-nav ul li a {
+#sidemenu li a {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
     position: relative;
 }
-nav ul li a::after {
+#sidemenu li a::after {
     content: "";
     width: 0;
     height: 3px;
@@ -71,7 +71,7 @@ nav ul li a::after {
     bottom: -6px;
     transition: 0.5s;
 }
-nav ul li a:hover::after {
+#sidemenu li a:hover::after {
     width: 100%;
 }
 .header-text {
@@ -203,11 +203,6 @@ object {
     justify-items: center;
     height: 100vw;
 }
-.grid figure {
-    width: 100%;
-    height: 100%;
-    border: solid #2b2b2b 1px;
-}
 .grid a:nth-child(1) .figure{
     border-top-left-radius: 14px;
 }
@@ -256,6 +251,7 @@ object {
     height: 100%;
     display: flex;
     background-color: rgba(255, 255, 255, 0.1);
+    border: solid #2b2b2b 1px;
     justify-content: center;
     align-items: center;
 }
@@ -291,9 +287,6 @@ body {
 }
 .contact-left {
     flex-basis: 35%;
-}
-.contact-right {
-    flex-basis: 60%;
 }
 .contact-left p {
     margin-top: 30px;
@@ -353,19 +346,20 @@ textarea {
     font-weight: 300;
     margin-top: 20px;
 }
-.animated-image {
+.animated-svg {
     position: absolute;
     bottom: 1%;
     right: 1%;
-    animation: revealImage 3s linear forwards;
-    mask-image: linear-gradient(to right, transparent 0%, black 100%);
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 70s linear;
 }
-@keyframes revealImage {
-    0% {
-        mask-position: 100% 0;
+@keyframes dash {
+    from {
+        stroke-dashoffset: 5000;
    }
-    100% {
-        mask-position: 0 0;
+    to {
+        stroke-dashoffset: 0;
    }
 }
 .grid-container {
@@ -517,10 +511,13 @@ button {
     stroke-dashoffset: -138px;
 }
 @media screen and (max-width: 900px) {
+    #contact {
+        margin-top: 10%;
+   }
     .contact-left, .contact-right {
         flex-basis: 100%;
    }
-   .animated-image{
+    .animated-image{
         width: 50%;
    }
     #sidemenu {
@@ -555,10 +552,43 @@ button {
     .header-text {
         margin-top: 45%;
    }
-    .ham1{
-        display: block;
-   }
     #sidemenu svg {
         position: fixed;
    }
+}
+.fixed-div-container {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+#sidemenu-mobile {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 40pt;
+    text-decoration: underline;
+    transition: opacity 0.3s ease-in-out;
+}
+#sidemenu-mobile li {
+    margin-bottom: 10px;
+}
+#sidemenu-mobile li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+}
+#sidemenu-mobile li a:hover {
+    background-color: gray;
 }
