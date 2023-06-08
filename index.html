@@ -35,7 +35,7 @@
           viewBox="0 0 100 100"
           width="80"
           id="hamburger"
-          onclick="toggleMenu(); toggleActiveClass()"
+          onclick="toggleMenuAndScroll()"
         >
           <path
             class="line top"
@@ -49,32 +49,32 @@
         </svg>
           <ul id="sidemenu">
             <li>
-              <a onclick="scrollToSection('about')" aria-label="About me">About me</a>
+              <a onclick="toggleMenuAndScroll('about')" aria-label="About me">About me</a>
             </li>
             <li>
-              <a onclick="scrollToSection('skills')" aria-label="Skills">Skills</a>
+              <a onclick="toggleMenuAndScroll('skills')" aria-label="Skills">Skills</a>
             </li>
             <li>
-              <a onclick="scrollToSection('portfolio')" aria-label="Portfolio">Portfolio</a>
+              <a onclick="toggleMenuAndScroll('portfolio')" aria-label="Portfolio">Portfolio</a>
             </li>
             <li>
-              <a onclick="scrollToSection('contact')" aria-label="Contact">Contact</a>
+              <a onclick="toggleMenuAndScroll('contact')" aria-label="Contact">Contact</a>
             </li>
           </ul>
         </nav>
         <div class="fixed-div-container">
           <ul id="sidemenu-mobile">
             <li>
-              <a onclick="scrollToSectionMobile('about')" aria-label="About me">About me</a>
+              <a onclick="toggleMenuAndScroll('about')" aria-label="About me">About me</a>
             </li>
             <li>
-              <a onclick="scrollToSectionMobile('skills')" aria-label="Skills" onclick="closeMenu()">Skills</a>
+              <a onclick="toggleMenuAndScroll('skills')" aria-label="Skills" onclick="closeMenu()">Skills</a>
             </li>
             <li>
-              <a onclick="scrollToSectionMobile('portfolio')" aria-label="Portfolio" onclick="closeMenu()">Portfolio</a>
+              <a onclick="toggleMenuAndScroll('portfolio')" aria-label="Portfolio" onclick="closeMenu()">Portfolio</a>
             </li>
             <li>
-              <a onclick="scrollToSectionMobile('contact')" aria-label="Contact" onclick="closeMenu()">Contact</a>
+              <a onclick="toggleMenuAndScroll('contact')" aria-label="Contact" onclick="closeMenu()">Contact</a>
             </li>
           </ul>
         </div>
@@ -369,47 +369,53 @@
     </div>
   </div>
     </div>
+  </div>
     <script>
-      function toggleMenu() {
-        var menu = document.getElementById("sidemenu-mobile");
-        var container = document.querySelector(".fixed-div-container");
+      ///-------------- NAVMENU FUNCTION --------------\\\
+var container = document.querySelector(".fixed-div-container");
+if (container) {
+  container.style.display = "none";
+}
 
-        if (container.style.opacity === "0" || container.style.opacity === "") {
-        container.style.opacity = "1";
-        container.style.pointerEvents = "auto";
-        var objects = container.querySelectorAll("*");
-        for (var i = 0; i < objects.length; i++) {
-          objects[i].style.display = "block";
-        }
-      } else {
-        container.style.opacity = "0";
-        container.style.pointerEvents = "none";
-        var objects = container.querySelectorAll("*");
-        for (var i = 0; i < objects.length; i++) {
-          objects[i].style.display = "none";
-        }
+function toggleMenuAndScroll(sectionId) {
+  var isMobile = window.innerWidth <= 900;
+
+  // Ganz einfache Deklarationen der Elemente in Variablen
+  var container = document.querySelector(".fixed-div-container");
+  var objects = container.querySelectorAll("*");
+  var hamburger = document.getElementById("hamburger");
+
+  // Sollte nur auf dem Hany ausgeführt werden
+  if (isMobile) {
+    if (hamburger) {
+      hamburger.classList.toggle("active");
+    }
+
+    // Prüft ob das Hauptmenü-Container aktuell nicht angezeigt wird
+    if (getComputedStyle(container).display === "none") {
+      container.style.display = "";
+      for (var i = 0; i < objects.length; i++) {
+        objects[i].style.display = "";
+      }
+    } else {
+      container.style.display = "none";
+      for (var i = 0; i < objects.length; i++) {
+        objects[i].style.display = "none";
       }
     }
-            function toggleActiveClass() {
-        var element = document.getElementById("hamburger");
-        if (element) {
-          element.classList.toggle("active");
-        }
-      }
-      function closeMenu() {
-        var container = document.querySelector(".fixed-div-container");
-        container.style.opacity = "0";
-        container.style.pointerEvents = "none";
-      }
-      function scrollToSection(sectionId) {
-        var section = document.getElementById(sectionId);
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-      function scrollToSectionMobile(sectionId) {
-        closeMenu()
-        var section = document.getElementById(sectionId);
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
+  }
+
+  // Wird genutzt um mit js zu scrollen, auch damit keine html anchors verwendet werden
+  if (sectionId) {
+    var section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}
+
+
+      ///-------------- NAVMENU FUNCTION --------------\\\
 
       var tablinks = document.getElementsByClassName('tab-links')
       var tabcontents = document.getElementsByClassName('tab-contents')
@@ -443,7 +449,7 @@
     </script>
     </div>
     <div class="warning-message">
-      Please switch to a larger device for the best experience.
+      Who has a screen so small like you?
     </div>  
   </body>
 </html>
