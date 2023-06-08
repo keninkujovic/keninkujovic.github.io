@@ -373,11 +373,17 @@
       function toggleMenu() {
         var menu = document.getElementById("sidemenu-mobile");
         var container = document.querySelector(".fixed-div-container");
-        
+
         if (container.style.opacity === "0" || container.style.opacity === "") {
+        console.log(container)
         container.style.opacity = "1";
         container.style.pointerEvents = "auto";
+        var objects = container.querySelectorAll("*");
+        for (var i = 0; i < objects.length; i++) {
+          objects[i].style.display = "block";
+        }
       } else {
+        console.log("nein")
         container.style.opacity = "0";
         container.style.pointerEvents = "none";
         var objects = container.querySelectorAll("*");
