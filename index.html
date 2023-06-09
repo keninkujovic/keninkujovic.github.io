@@ -371,6 +371,23 @@
     </div>
   </div>
   <script>
+
+    // Menu wird geschlossen beim öffnen der Seite
+    (function hideMenuOnLoad() {
+      var container = document.querySelector(".fixed-div-container");
+      var objects = container.querySelectorAll("*");
+      var hamburger = document.getElementById("hamburger");
+
+      container.style.display = "none";
+      for (var i = 0; i < objects.length; i++) {
+        objects[i].style.display = "none";
+      }
+
+      if (hamburger && hamburger.classList.contains("active")) {
+        hamburger.classList.remove("active");
+      }
+    })();
+
     ///--------------- CSS FOR SAFARI ---------------///
     window.onload = function() {
         var userAgent = navigator.userAgent.toLowerCase();
