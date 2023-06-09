@@ -466,7 +466,6 @@ button {
     -ms-user-select: none;
     user-select: none;
     position: fixed;
-    top: -7%;
     right: 0;
 }
 .hamRotate.active {

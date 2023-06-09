@@ -370,67 +370,108 @@
   </div>
     </div>
   </div>
-    <script>
-      ///-------------- NAVMENU FUNCTION --------------\\\
-var container = document.querySelector(".fixed-div-container");
-if (container) {
-  container.style.display = "none";
-}
-
-function toggleMenuAndScroll(sectionId) {
-  var isMobile = window.innerWidth <= 900;
-
-  // Ganz einfache Deklarationen der Elemente in Variablen
-  var container = document.querySelector(".fixed-div-container");
-  var objects = container.querySelectorAll("*");
-  var hamburger = document.getElementById("hamburger");
-
-  // Sollte nur auf dem Hany ausgeführt werden
-  if (isMobile) {
-    if (hamburger) {
-      hamburger.classList.toggle("active");
+  <script>
+    ///--------------- CSS FOR SAFARI ---------------///
+    window.onload = function() {
+        var userAgent = navigator.userAgent.toLowerCase();
+        var style = document.createElement('style');
+    
+        if (userAgent.indexOf('safari') != -1 && userAgent.indexOf('chrome') == -1) {
+            // if browser agent is safari
+            style.innerHTML = `
+            .ham {
+                top: -2%;
+            }`;
+        } else {
+            // for all browsers other than safari
+            style.innerHTML = `
+            .ham {
+                top: -7%;
+            }`;
+        }
+    
+        document.head.appendChild(style);
     }
-
-    // Prüft ob das Hauptmenü-Container aktuell nicht angezeigt wird
-    if (getComputedStyle(container).display === "none") {
-      container.style.display = "";
-      for (var i = 0; i < objects.length; i++) {
-        objects[i].style.display = "";
-      }
-    } else {
-      container.style.display = "none";
-      for (var i = 0; i < objects.length; i++) {
-        objects[i].style.display = "none";
-      }
+    
+    ///-------------- NAVMENU FUNCTION --------------///
+    window.addEventListener('resize', handleResize);
+    
+    function handleResize(event) {
+        var isMobile = window.innerWidth <= 900;
+        var container = document.querySelector(".fixed-div-container");
+        var objects = container.querySelectorAll("*");
+        var hamburger = document.getElementById("hamburger");
+    
+        if (!isMobile) {
+            hideMenu(container, objects, hamburger);
+        }
     }
-  }
-
-  // Wird genutzt um mit js zu scrollen, auch damit keine html anchors verwendet werden
-  if (sectionId) {
-    var section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+    
+    function hideMenu(container, objects, hamburger) {
+        container.style.display = "none";
+        for (var i = 0; i < objects.length; i++) {
+            objects[i].style.display = "none";
+        }
+    
+        if (hamburger && hamburger.classList.contains("active")) {
+            hamburger.classList.remove("active");
+        }
     }
-  }
-}
-
-
-      ///-------------- NAVMENU FUNCTION --------------\\\
-
-      var tablinks = document.getElementsByClassName('tab-links')
-      var tabcontents = document.getElementsByClassName('tab-contents')
-
-      function opentab(tabname) {
+    
+    function toggleMenuAndScroll(sectionId) {
+        var isMobile = window.innerWidth <= 900;
+        var container = document.querySelector(".fixed-div-container");
+        var objects = container.querySelectorAll("*");
+        var hamburger = document.getElementById("hamburger");
+    
+        if (isMobile) {
+            if (hamburger) {
+                hamburger.classList.toggle("active");
+            }
+    
+            if (getComputedStyle(container).display === "none") {
+                showMenu(container, objects);
+            } else {
+                hideMenu(container, objects, hamburger);
+            }
+        }
+    
+        if (sectionId) {
+            scrollToSection(sectionId);
+        }
+    }
+    
+    function showMenu(container, objects) {
+        container.style.display = "";
+        for (var i = 0; i < objects.length; i++) {
+            objects[i].style.display = "";
+        }
+    }
+    
+    function scrollToSection(sectionId) {
+        var section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    
+    ///-------------- TABS FUNCTION --------------///
+    
+    var tablinks = document.getElementsByClassName('tab-links')
+    var tabcontents = document.getElementsByClassName('tab-contents')
+    
+    function opentab(tabname) {
         for (tablink of tablinks) {
-          tablink.classList.remove("active-link");
+            tablink.classList.remove("active-link");
         }
         for (tabcontent of tabcontents) {
-          tabcontent.classList.remove("active-tab");
+            tabcontent.classList.remove("active-tab");
         }
         event.currentTarget.classList.add("active-link");
         document.getElementById(tabname).classList.add('active-tab')
-      }
-    </script>
+    }
+    
+    </script>    
     <!-- Google Tag Manager -->
     <script defer>
       (function(w, d, s, l, i) {
