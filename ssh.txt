@@ -1,9 +1,13 @@
 192.168.0.210:
 
+#ubuntu
+
 sudo apt update
 sudo apt install openssh-server
 
 sudo service ssh status
+
+#ubuntu end 
 
 #windows
 
@@ -26,3 +30,5 @@ sudo nano /etc/ssh/sshd_config
 PasswordAuthentication no
 
 sudo service ssh restart
+
+#windows end
