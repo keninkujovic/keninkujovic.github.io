@@ -13,7 +13,7 @@ sudo service ssh status
 
 ssh-keygen
 
-scp  C:\Users\vmadmin/.ssh/id_rsa.pub vmadmin@192.168.210.22:~/.ssh/id_rsa.pub
+scp  C:\Users\vmadmin/.ssh/id_rsa.pub vmadmin@192.168.210.22:~/.ssh
 
 ssh vmadmin@192.168.210.22
 
