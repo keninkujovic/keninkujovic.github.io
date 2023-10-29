@@ -363,25 +363,34 @@
   </form>
   <script>
     function sendEmail(event) {
-      event.preventDefault();  // Verhindert das Absenden des Formulars
+  event.preventDefault();  // Verhindert das Absenden des Formulars
 
-      // Setzen der Webseite URL
-      document.getElementById('webseiteInput').value = window.location.href;
+  var name = event.target.elements['Name'].value;
+  var email = event.target.elements['Email'].value;
+  var message = event.target.elements['Message'].value;
+  var webseite = window.location.href;
 
-      var formData = new FormData(event.target);
-      fetch('https://emailsform.intellisoft.dev/form/', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        alert("Message sent successfully!");
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert("An error occurred while sending the message.");
-      });
-    }
+  fetch('https://emailsform.intellisoft.dev/form/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      webseite: webseite,
+      email: email,
+      subject: name,  // Angenommen, dass der Name als Betreff verwendet wird
+      message: message,
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert("Message sent successfully!");
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert("An error occurred while sending the message.");
+  });
+}
   </script>
 </div>
 
