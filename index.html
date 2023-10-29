@@ -350,20 +350,41 @@
             </div>
           </div>
           <div class="contact-right">
-            <form name="submit-to-google-sheet" action="https://formspree.io/f/mayzrwjz" method="POST" onsubmit="showPopup()">
-              <input type="text" name="Name" placeholder="Your Name" required>
-              <input type="email" name="Email" placeholder="Your Email" required>
-              <textarea name="Message" rows="6" placeholder="Your Message..."></textarea>
-              <div class="button-container">
-              <button type="submit" id="submit">
-                <span class="animated-button"></span> Submit 👍 </button>
-              </div>
-            </form>
-            <script>
-              function showPopup() {
-                alert("Message sent successfully!");
-              }
-            </script>
+  <form name="submit-to-google-sheet" onsubmit="sendEmail(event)">
+    <input type="text" name="Name" placeholder="Your Name" required>
+    <input type="email" name="Email" placeholder="Your Email" required>
+    <textarea name="Message" rows="6" placeholder="Your Message..."></textarea>
+    <input type="hidden" name="Webseite" value="" id="webseiteInput"> <!-- Feld für die Webseite URL -->
+    <div class="button-container">
+      <button type="submit" id="submit">
+        <span class="animated-button"></span> Submit 👍
+      </button>
+    </div>
+  </form>
+  <script>
+    function sendEmail(event) {
+      event.preventDefault();  // Verhindert das Absenden des Formulars
+
+      // Setzen der Webseite URL
+      document.getElementById('webseiteInput').value = window.location.href;
+
+      var formData = new FormData(event.target);
+      fetch('https://emailsform.intellisoft.dev/form/', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert("Message sent successfully!");
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert("An error occurred while sending the message.");
+      });
+    }
+  </script>
+</div>
+
             <span id="msg"></span>
           </div>
       </div>
