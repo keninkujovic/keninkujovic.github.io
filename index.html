@@ -363,24 +363,13 @@
   </form>
   <script>
     function sendEmail(event) {
-  event.preventDefault();  // Verhindert das Absenden des Formulars
+  event.preventDefault();  // Prevents the form from submitting the traditional way
 
-  var name = event.target.elements['Name'].value;
-  var email = event.target.elements['Email'].value;
-  var message = event.target.elements['Message'].value;
-  var webseite = window.location.href;
+  var formData = new FormData(event.target);
 
   fetch('https://emailsform.intellisoft.dev/form/', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      webseite: webseite,
-      email: email,
-      subject: name,  // Angenommen, dass der Name als Betreff verwendet wird
-      message: message,
-    })
+    body: formData,
   })
   .then(response => response.json())
   .then(data => {
@@ -391,6 +380,7 @@
     alert("An error occurred while sending the message.");
   });
 }
+
   </script>
 </div>
 
